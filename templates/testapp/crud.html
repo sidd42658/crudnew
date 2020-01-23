@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>welcome to crud operations</title>
+</head>
+<body>
+<form action="/insert/" method="post">
+    {% csrf_token %}
+    Nmae:<input type="text" name="ename"><br><br>
+    Salery:<input type="number" name="esal"><br><br>
+    Address:<input type="text" name="eaddr"><br><br>
+    Designation:<input type="text" name="edesg"><br><br>
+    SUBMIT:<input type="submit"><br><br>
+</form><br><br>
+<table border="2">
+    <thead>
+    <th>ID</th>
+    <th>NAME</th>
+    <th>SALERY</th>
+    <th>ADDRESS</th>
+    <th>DESIGNATION</th>
+    </thead>
+    {% for emp in employee%}
+        <tr>
+            <td>{{emp.id}}</td>
+            <td>{{emp.name}}</td>
+            <td>{{emp.salery}}</td>
+            <td>{{emp.addr}}</td>
+            <td>{{emp.desg}}</td>
+            <td><a href="/delete/{{emp.id}}">Delete</a> | <a href="/update/{{emp.id}}">Update</a></td>
+        </tr>
+     {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</table>
+
+</body>
+</html>
